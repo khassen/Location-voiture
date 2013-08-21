@@ -44,8 +44,6 @@
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="showSql" value="true" />
-				<!-- si on va creer la base on met true , si elle existe deja on fait 
-					un falsC -->
 				<property name="generateDdl" value="true" />
 				<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
 			</bean>
@@ -55,4 +53,10 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
 		p:entityManagerFactory-ref="entityManagerFactory" />
 	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+		<!-- pour la validation par fichier properties -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
 </beans>

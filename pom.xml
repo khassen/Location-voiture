@@ -86,23 +86,31 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.1.0.Alpha1</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
 
-<!-- 		Base de données MYSQL -->
-<!-- 		fourni par tocat -->
+		<!-- Base de données MYSQL -->
+		<!-- fourni par tocat -->
 		<dependency>
-		<groupId>mysql</groupId>
-		<artifactId>mysql-connector-java</artifactId>
-		<version>5.1.26</version>
-		<scope>test</scope>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.26</version>
+			<scope>test</scope>
 		</dependency>
 
-<!-- 		Junit -->
+
+
+		<!-- Junit -->
 
 		<dependency>
 			<groupId>junit</groupId>

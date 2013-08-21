@@ -1,12 +1,18 @@
 package fr.treeptik.locationvoiture.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -18,8 +24,20 @@ public class Voiture implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
+//	@NotEmpty(message="saisir une marque")
+	@NotEmpty
 	private String marque;
+	
+//	@NotBlank(message="saisir un modele")
+//	@Size(min=3, max=10,message="modele entre 3 et 10")
+	@NotBlank
+	@Size(min=3, max=10)
 	private String model;
+	
+	@DateTimeFormat
+	private Date dateMiseEnCirculation;
+	
 	public Voiture() {
 		super();
 	}
@@ -49,6 +67,12 @@ public class Voiture implements Serializable{
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	public Date getDateMiseEnCirculation() {
+		return dateMiseEnCirculation;
+	}
+	public void setDateMiseEnCirculation(Date dateMiseEnCirculation) {
+		this.dateMiseEnCirculation = dateMiseEnCirculation;
 	}
 
 }
