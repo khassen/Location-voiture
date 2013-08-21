@@ -43,7 +43,7 @@ public class VoitureController {
 	}
 
 	@RequestMapping(value = "/voiture.do", method = RequestMethod.POST)
-	public ModelAndView saisieDeVoiture(@Valid Voiture voiture, BindingResult errors)
+	public ModelAndView saisieVoiture(@Valid Voiture voiture, BindingResult errors)
 			throws ServiceException {
 		
 		//ca permet de valider d'autre saisie autre que celle valider par hibernate valdator
@@ -61,7 +61,7 @@ public class VoitureController {
 	}
 
 //	@RequestMapping(value = "/voiture.do", method = RequestMethod.POST)
-//	public ModelAndView saisieVoiture( Voiture voiture) throws ServiceException {
+//	public ModelAndView saisieDeVoiture( Voiture voiture) throws ServiceException {
 //		
 //
 //		
