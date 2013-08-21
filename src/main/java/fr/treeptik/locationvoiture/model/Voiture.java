@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -37,6 +38,9 @@ public class Voiture implements Serializable{
 	
 	@DateTimeFormat
 	private Date dateMiseEnCirculation;
+	
+	@OneToOne(mappedBy="voiture")
+	private Reservation reservation;
 	
 	public Voiture() {
 		super();
