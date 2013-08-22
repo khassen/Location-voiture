@@ -31,11 +31,11 @@ public class Reservation {
 	private Date dateRetour;
 
 	@ManyToOne()
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id_client")
 	private Client client;
 
 	@OneToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id_voiture")
 	private Voiture voiture;
 
 	public Reservation() {
