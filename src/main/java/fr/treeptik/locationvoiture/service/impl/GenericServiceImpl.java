@@ -54,8 +54,9 @@ public abstract class GenericServiceImpl<T, PK, D extends GenericDAO<T, PK>> imp
 		}
 	}
 	
-	@Transactional
+
 	@Override
+	@Transactional
 	public T update(T entite) throws ServiceException {
 		try {
 			getDAO().update(entite);

@@ -56,7 +56,7 @@ public class VoitureController {
 		
 		voitureService.save(voiture);
 		System.out.println("Voiture marque: " + voiture.getMarque());
-		return new ModelAndView("afficher-voiture", "voiture", voiture);
+		return new ModelAndView("redirect:listVoitures.do");
 
 	}
 
@@ -92,13 +92,13 @@ public class VoitureController {
 
 	}
 
-	@RequestMapping(value = "/modifier.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/modifier.do", method = RequestMethod.POST)
 	public ModelAndView modifierVoiture(Voiture v) throws ServiceException {
-		ModelAndView modelAndView = new ModelAndView("modifier-voiture",
-				"voiture", v);
+        
+		
 		voitureService.update(v);
 
-		return modelAndView;
+		return new ModelAndView("redirect:listVoitures.do");
 
 	}
 }
