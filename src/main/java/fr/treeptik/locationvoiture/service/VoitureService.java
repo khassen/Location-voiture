@@ -4,7 +4,7 @@ import fr.treeptik.locationvoiture.model.Voiture;
 
 
 
-public interface VoitureService extends GenricService<Voiture, Integer>{
+public interface VoitureService extends GenericService<Voiture, Integer>{
 	
 //	public List<Voiture> findAll(){
 //		Voiture v1 = new Voiture(1,"AUDI", "A3");

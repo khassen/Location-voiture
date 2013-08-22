@@ -4,7 +4,7 @@ import java.util.List;
 
 import fr.treeptik.locationvoiture.exception.ServiceException;
 
-public interface GenricService<T, PK> {
+public interface GenericService<T, PK> {
 	
 	
 	T save(T entite) throws ServiceException;

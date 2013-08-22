@@ -7,9 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.treeptik.locationvoiture.dao.GenericDAO;
 import fr.treeptik.locationvoiture.exception.DAOException;
 import fr.treeptik.locationvoiture.exception.ServiceException;
-import fr.treeptik.locationvoiture.service.GenricService;
+import fr.treeptik.locationvoiture.service.GenericService;
 
-public abstract class GenericServiceImpl<T, PK, D extends GenericDAO<T, PK>> implements GenricService<T, PK>{
+public abstract class GenericServiceImpl<T, PK, D extends GenericDAO<T, PK>> implements GenericService<T, PK>{
 
 	protected abstract D getDAO();
 	
