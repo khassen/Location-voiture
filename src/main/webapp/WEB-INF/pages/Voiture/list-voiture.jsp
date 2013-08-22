@@ -30,16 +30,19 @@
 				<td>${v.id}</td>
 				<td>${v.marque}</td>
 				<td>${v.model}</td>
-				<td><a href="modifier.do">Modifier</a></td>
-				<td><a
-					href="supprimer.do?id=${v.id}">Supprimer</a></td>
+				<td><a href="modifier.do?id=${v.id}">Modifier</a></td>
+				<td><a href="supprimer.do?id=${v.id}">Supprimer</a></td>
 			</tr>
 
 
 
 		</c:forEach>
 	</table>
-
+	
+	<br/>
+	<div>
+		<a href="voiture.do">Ajouter une nouvelle voiture</a>
+	</div>
 
 </body>
 </html>

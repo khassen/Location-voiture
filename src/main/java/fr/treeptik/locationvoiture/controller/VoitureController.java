@@ -23,7 +23,7 @@ public class VoitureController {
 
 	@Autowired
 	private VoitureService voitureService;
-	
+
 	@Autowired
 	private VoitureValidator validator;
 
@@ -43,34 +43,36 @@ public class VoitureController {
 	}
 
 	@RequestMapping(value = "/voiture.do", method = RequestMethod.POST)
-	public ModelAndView saisieVoiture(@Valid Voiture voiture, BindingResult errors)
-			throws ServiceException {
-		
-		//ca permet de valider d'autre saisie autre que celle valider par hibernate valdator
-		
+	public ModelAndView saisieVoiture(@Valid Voiture voiture,
+			BindingResult errors) throws ServiceException {
+
+		// ca permet de valider d'autre saisie autre que celle valider par
+		// hibernate valdator
+
 		validator.validate(voiture, errors);
-		
-		if(errors.hasErrors()) {
+
+		if (errors.hasErrors()) {
 			return new ModelAndView("saisie-voiture", "voiture", voiture);
-		} 
-		
+		}
+
 		voitureService.save(voiture);
 		System.out.println("Voiture marque: " + voiture.getMarque());
-		return new ModelAndView("redirect:listVoitures.do");
+		return new ModelAndView("redirect:voitures.do");
 
 	}
 
-//	@RequestMapping(value = "/voiture.do", method = RequestMethod.POST)
-//	public ModelAndView saisieDeVoiture( Voiture voiture) throws ServiceException {
-//		
-//
-//		
-//		voitureService.save(voiture);
-//		Map<String, Object> params = new HashMap<String, Object>();
-//		params.put("listVoitures", voitureService.findAll());
-//		return new ModelAndView("list-voiture",params);
-//
-//	}
+	// @RequestMapping(value = "/voiture.do", method = RequestMethod.POST)
+	// public ModelAndView saisieDeVoiture( Voiture voiture) throws
+	// ServiceException {
+	//
+	//
+	//
+	// voitureService.save(voiture);
+	// Map<String, Object> params = new HashMap<String, Object>();
+	// params.put("listVoitures", voitureService.findAll());
+	// return new ModelAndView("list-voiture",params);
+	//
+	// }
 
 	@RequestMapping(value = "/voitures.do", method = RequestMethod.GET)
 	public ModelAndView findAllVoiture() throws ServiceException {
@@ -94,11 +96,19 @@ public class VoitureController {
 
 	@RequestMapping(value = "/modifier.do", method = RequestMethod.POST)
 	public ModelAndView modifierVoiture(Voiture v) throws ServiceException {
-        
-		
+
 		voitureService.update(v);
 
-		return new ModelAndView("redirect:listVoitures.do");
+		return new ModelAndView("redirect:voitures.do");
+
+	}
+
+	@RequestMapping(value = "modifier.do", method = RequestMethod.GET)
+	public ModelAndView initModifier(Voiture voiture) throws ServiceException {
+
+		voiture = voitureService.findById(voiture.getId());
+
+		return new ModelAndView("modifier-voiture", "voiture", voiture);
 
 	}
 }
