@@ -1,5 +1,6 @@
 package fr.treeptik.locationvoiture.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -15,18 +16,19 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "reservation")
-public class Reservation {
+public class Reservation implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
+
 	@DateTimeFormat
 	private Date dateReservation;
-	
+
 	@DateTimeFormat
 	private Date datePrise;
-	
+
 	@DateTimeFormat
 	private Date dateRetour;
 
@@ -101,5 +103,4 @@ public class Reservation {
 		this.voiture = voiture;
 	}
 
-	
 }
