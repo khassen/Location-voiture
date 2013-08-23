@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.treeptik.locationvoiture.exception.ServiceException;
 import fr.treeptik.locationvoiture.model.Client;
-import fr.treeptik.locationvoiture.model.Voiture;
 import fr.treeptik.locationvoiture.service.ClientService;
 
 @Controller
@@ -70,7 +69,7 @@ public class ClientController {
 
 	}
 	
-	@RequestMapping(value = "update.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/update.do", method = RequestMethod.GET)
 	public ModelAndView initUpdateClient(Client cli) throws ServiceException {
 
 		cli = clientService.findById(cli.getId());

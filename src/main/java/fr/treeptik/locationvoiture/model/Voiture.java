@@ -36,7 +36,7 @@ public class Voiture implements Serializable{
 	@Size(min=3, max=10)
 	private String model;
 	
-	@DateTimeFormat
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date dateMiseEnCirculation;
 	
 	@OneToOne(mappedBy="voiture")

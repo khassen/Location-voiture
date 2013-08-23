@@ -19,7 +19,7 @@ import fr.treeptik.locationvoiture.service.VoitureService;
 import fr.treeptik.locationvoiture.validator.VoitureValidator;
 
 @Controller
-@RequestMapping(value="/voiture")
+//@RequestMapping(value="/voiture")
 public class VoitureController {
 
 	@Autowired
@@ -38,7 +38,7 @@ public class VoitureController {
 	@RequestMapping(value = "/voiture.do", method = RequestMethod.GET)
 	public ModelAndView initForm() throws ServiceException {
 		Voiture v = new Voiture();
-		ModelAndView modelAndView = new ModelAndView("voiture/saisie-voiture",
+		ModelAndView modelAndView = new ModelAndView("saisie-voiture",
 				"voiture", v);
 		return modelAndView;
 	}
@@ -53,7 +53,7 @@ public class VoitureController {
 		validator.validate(voiture, errors);
 
 		if (errors.hasErrors()) {
-			return new ModelAndView("voiture/saisie-voiture", "voiture", voiture);
+			return new ModelAndView("saisie-voiture", "voiture", voiture);
 		}
 
 		voitureService.save(voiture);
@@ -82,7 +82,7 @@ public class VoitureController {
 		params.put("supervoiture", new Voiture(6, "SUPER VOITURE",
 				"SUPER VOITURE"));
 
-		return new ModelAndView("voiture/list-voiture", params);
+		return new ModelAndView("list-voiture", params);
 	}
 
 	@RequestMapping(value = "/supprimer.do", method = RequestMethod.GET)
@@ -91,7 +91,7 @@ public class VoitureController {
 
 		voitureService.remove(id);
 
-		return new ModelAndView("voiture/supprimer-voiture");
+		return new ModelAndView("supprimer-voiture");
 
 	}
 
@@ -109,7 +109,7 @@ public class VoitureController {
 
 		voiture = voitureService.findById(voiture.getId());
 
-		return new ModelAndView("voiture/modifier-voiture", "voiture", voiture);
+		return new ModelAndView("modifier-voiture", "voiture", voiture);
 
 	}
 }

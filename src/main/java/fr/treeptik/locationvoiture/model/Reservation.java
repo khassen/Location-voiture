@@ -23,13 +23,13 @@ public class Reservation implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@DateTimeFormat
-	private Date dateReservation;
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	private Date dateResev;
 
-	@DateTimeFormat
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date datePrise;
 
-	@DateTimeFormat
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date dateRetour;
 
 	@ManyToOne()
@@ -44,11 +44,11 @@ public class Reservation implements Serializable {
 		super();
 	}
 
-	public Reservation(Integer id, Date dateReservation, Date datePrise,
+	public Reservation(Integer id, Date dateResev, Date datePrise,
 			Date dateRetour, Client client, Voiture voiture) {
 		super();
 		this.id = id;
-		this.dateReservation = dateReservation;
+		this.dateResev = dateResev;
 		this.datePrise = datePrise;
 		this.dateRetour = dateRetour;
 		this.client = client;
@@ -63,12 +63,12 @@ public class Reservation implements Serializable {
 		this.id = id;
 	}
 
-	public Date getDateReservation() {
-		return dateReservation;
+	public Date getdateResev() {
+		return dateResev;
 	}
 
-	public void setDateReservation(Date dateReservation) {
-		this.dateReservation = dateReservation;
+	public void setdateResev(Date dateResev) {
+		this.dateResev = dateResev;
 	}
 
 	public Date getDatePrise() {
@@ -101,6 +101,31 @@ public class Reservation implements Serializable {
 
 	public void setVoiture(Voiture voiture) {
 		this.voiture = voiture;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Reservation other = (Reservation) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 }
