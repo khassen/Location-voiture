@@ -1,4 +1,4 @@
 Location-voiture
 ================
 
-tp location-voiture: Maven JPA SpringIO SpringMVC SpringSecurity  Tomcat7 git
+tp location-voiture: Maven JPA Hibernate Validator SpringIO SpringMVC SpringSecurity jsp  Tomcat7 git
