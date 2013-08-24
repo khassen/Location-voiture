@@ -1,4 +1,4 @@
 Location-voiture
 ================
 
-tp location-voiture SpringMVC JPA Tomcat
+tp location-voiture: Maven JPA SpringIO SpringMVC SpringSecurity  Tomcat7 git
