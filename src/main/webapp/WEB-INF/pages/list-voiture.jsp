@@ -23,6 +23,7 @@
 			<th>ID</th>
 			<th>Marque</th>
 			<th>Modele</th>
+			<th>Date Mise En Circulation</th>
 
 		</tr>
 		<c:forEach items="${listVoitures}" var="v">
@@ -30,6 +31,7 @@
 				<td>${v.id}</td>
 				<td>${v.marque}</td>
 				<td>${v.model}</td>
+				<td>${v.dateMiseEnCirculation}</td>
 				<td><a href="modifier.do?id=${v.id}">Modifier</a></td>
 				<td><a href="supprimer.do?id=${v.id}">Supprimer</a></td>
 			</tr>

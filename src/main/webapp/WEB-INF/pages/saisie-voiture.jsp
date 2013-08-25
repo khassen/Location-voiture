@@ -20,12 +20,18 @@
 
 			<tr>
 				<td>Marque:</td>
-				<td><form:input path="marque" /> <form:errors path ="marque"/></td>
+				<td><form:input path="marque" /></td>
 			</tr>
 
 			<tr>
 				<td>Modele:</td>
-				<td><form:input path="model" /><form:errors path ="model"/></td>
+				<td><form:input path="model" /> <form:errors path="model" /></td>
+
+			</tr>
+			<tr>
+				<td>Date Mise En Circulation:</td>
+				<td><form:input path="dateMiseEnCirculation" /> <form:errors
+						path="dateMiseEnCirculation" /></td>
 
 			</tr>
 			<tr>

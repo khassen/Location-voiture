@@ -21,6 +21,11 @@ public class ClientController {
 	private ClientService clientService;
 	
 	
+	
+//	mysql> select * from client c 
+//	join reservation r on c.id = r.id_client where c.id in(select id_client from reservation);
+
+	
 	@RequestMapping(value = "/client.do", method = RequestMethod.GET)
 	public ModelAndView initForm() throws ServiceException {
 		Client cli = new Client();
