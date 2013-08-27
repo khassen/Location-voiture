@@ -4,14 +4,30 @@
 <!--     ajouter une directive de page pour pouvoir utiliser des balises -->
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
+
+<!-- pour les dates -->
+<%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"%> --%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="header.jsp"%>
+	<center>
 	<h1>Saisie Voiture</h1>
+	<br />
+	<!-- pour pouvoir changer la langue -->
+	<fmt:bundle basename="messages" />
+
+	<h1>
+		<fmt:message key="saisie-voiture.titre" />
+	</h1>
+
 	<br />
 
 	<form:form action="voiture.do" commandName="voiture" method="POST">
@@ -40,7 +56,10 @@
 			</tr>
 
 		</table>
-
+		</br>
+		<a href="begin.do">retour</a>
 	</form:form>
+	</center>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

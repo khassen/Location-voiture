@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <!-- 	conf a rajotter -->
 
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="header.jsp"%>
 	<h1>List des clients</h1>
 	<br />
 
@@ -45,5 +46,6 @@
 			<a href="client.do">Ajouter une nouveau client</a>
 		</div>
 	</form:form>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

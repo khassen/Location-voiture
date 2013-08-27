@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 	<form:form action="reservation.do" commandName="reservation"
 		method="POST">
 
@@ -70,5 +71,6 @@
 		</table>
 
 	</form:form>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

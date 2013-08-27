@@ -12,7 +12,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 	<h1>Afficher Voiture</h1>
 	<br /> ${voiture.marque} ${voiture.model}
+	
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -2,6 +2,7 @@ package fr.treeptik.locationvoiture.service.impl;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.treeptik.locationvoiture.dao.GenericDAO;
@@ -35,7 +36,6 @@ public abstract class GenericServiceImpl<T, PK, D extends GenericDAO<T, PK>> imp
 	}
 
 	@Override
-	@Transactional
 	public T findById(PK id) throws ServiceException {
 		try {
 			return getDAO().findById(id);
@@ -45,7 +45,7 @@ public abstract class GenericServiceImpl<T, PK, D extends GenericDAO<T, PK>> imp
 	}
 
 	@Override
-	@Transactional
+//	@Transactional(propagation=Propagation.MANDATORY)
 	public List<T> findAll() throws ServiceException {
 		try {
 			return getDAO().findAll();

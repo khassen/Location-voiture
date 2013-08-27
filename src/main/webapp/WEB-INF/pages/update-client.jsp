@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-	<!-- 	conf a rajotter -->
+
+<!-- 	conf a rajotter -->
 
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<%@ include file="header.jsp"%>
 	<h1>Modifier Client</h1>
 	<br />
 
@@ -44,6 +44,6 @@
 		<a href="clients.do">Retour à la liste des voitures</a>
 
 	</form:form>
-
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

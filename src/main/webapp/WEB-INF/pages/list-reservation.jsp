@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 	<h1>Liste des reservations:</h1>
 	<br />
 
@@ -42,7 +43,7 @@
 
 		</c:forEach>
 	</table>
-
+<%@ include file="footer.jsp" %>
 
 </body>
 </html>

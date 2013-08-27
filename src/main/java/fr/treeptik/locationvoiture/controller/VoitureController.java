@@ -28,12 +28,6 @@ public class VoitureController {
 	@Autowired
 	private VoitureValidator validator;
 
-	@RequestMapping("/hello")
-	public void sayHello() {
-
-		System.out.println("Hello World");
-
-	}
 
 	@RequestMapping(value = "/voiture.do", method = RequestMethod.GET)
 	public ModelAndView initForm() throws ServiceException {

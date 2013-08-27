@@ -24,7 +24,7 @@ public class VoitureValidator implements Validator{
 		// je transforme mon objet voiture
      Voiture v = (Voiture) voiture;
 		if(v.getMarque().equalsIgnoreCase(v.getModel())){
-			errors.rejectValue("modele","saisie-voiture.modele.equalsmarque");
+			errors.rejectValue("model","saisie-voiture.model.equalsmarque");
 		}
 	}
 

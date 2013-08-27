@@ -12,6 +12,7 @@
 <title>list voitures</title>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 	<h1>Liste des voitures</h1>
 	<br />
 
@@ -45,6 +46,6 @@
 	<div>
 		<a href="voiture.do">Ajouter une nouvelle voiture</a>
 	</div>
-
+<%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -25,26 +25,26 @@ public class Reservation implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@NotNull
+//	@NotNull
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date dateResev;
 
-	@NotNull
+//	@NotNull
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date datePrise;
 
-	@NotNull
+//	@NotNull
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date dateRetour;
 
-	@NotNull
-	@Valid
+//	@NotNull
+//	@Valid
 	@ManyToOne()
 	@JoinColumn(name = "id_client")
 	private Client client;
 
-	@NotNull
-	@Valid
+//	@NotNull
+//	@Valid
 	@OneToOne
 	@JoinColumn(name = "id_voiture")
 	private Voiture voiture;

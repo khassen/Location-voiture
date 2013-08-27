@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%@ include file="header.jsp" %>
 	<h1>Modifier reservation</h1>
 	<br />
 
@@ -66,7 +66,7 @@
 
 
 
-
+<%@ include file="footer.jsp" %>
 
 </body>
 </html>
