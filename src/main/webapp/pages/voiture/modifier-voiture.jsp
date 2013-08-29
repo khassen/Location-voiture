@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="/pages/header.jsp"%>
 	<h1>Modifier Voiture</h1>
 	<br />
 
@@ -26,6 +26,10 @@
 				<td>Modele :</td>
 				<td><form:input path="model" /></td>
 			</tr>
+						<tr>
+				<td>date mise en circulation :</td>
+				<td><form:input path="dateMiseEnCirculation" /></td>
+			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Valider" /></td>
 			</tr>
@@ -37,7 +41,7 @@
 
 	</form:form>
 
-	<%@ include file="footer.jsp"%>
+	<%@ include file="/pages/footer.jsp"%>
 
 </body>
 </html>

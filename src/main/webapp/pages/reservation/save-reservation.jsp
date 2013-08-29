@@ -12,12 +12,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="/pages/header.jsp" %>
 	<form:form action="reservation.do" commandName="reservation"
 		method="POST">
 
 		<table>
-
+			<tr>
+				<td>Date Reservation:</td>
+				<td><form:input path="dateResev" /></td>
+			</tr>
 			<tr>
 				<td>Date de retrait :</td>
 				<td><form:input path="datePrise" />
@@ -28,10 +31,7 @@
 				<td><form:input path="dateRetour" />
 					<form:errors path="dateRetour" /></td>
 			</tr>
-			<tr>
-				<td>Date Reservation:</td>
-				<td><form:input path="dateResev" /></td>
-			</tr>
+
 <!-- 			<tr> -->
 <!-- 				<td>Client :</td> -->
 <%-- 				<td><form:select path="client.id" items="${listClients}" /> <form:errors --%>
@@ -71,6 +71,6 @@
 		</table>
 
 	</form:form>
-	<%@ include file="footer.jsp" %>
+	<%@ include file="/pages/footer.jsp" %>
 </body>
 </html>

@@ -13,6 +13,6 @@ tp location-voiture: Maven JPA Hibernate Validator SpringIO SpringMVC SpringSecu
 -7- Packages Validator
 -8- Spring security
 -9- Spring aop (Aspect oriented programming), package aspect
--10-Log4j: API pour les log, fichier log4j.xml dans ressorces
+-10-Log4j: API pour les log, fichier log.xml dans ressorces
 -12-Bootstrap, HTML et CSS
--13-les test unitaires EasyMock
+

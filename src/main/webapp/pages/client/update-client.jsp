@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="/pages/header.jsp"%>
 	<h1>Modifier Client</h1>
 	<br />
 
@@ -44,6 +44,6 @@
 		<a href="clients.do">Retour à la liste des voitures</a>
 
 	</form:form>
-	<%@ include file="footer.jsp"%>
+	<%@ include file="/pages/footer.jsp"%>
 </body>
 </html>

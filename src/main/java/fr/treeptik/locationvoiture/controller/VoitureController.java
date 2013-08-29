@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -19,7 +20,7 @@ import fr.treeptik.locationvoiture.service.VoitureService;
 import fr.treeptik.locationvoiture.validator.VoitureValidator;
 
 @Controller
-//@RequestMapping(value="/voiture")
+@RequestMapping(value = "/voiture")
 public class VoitureController {
 
 	@Autowired
@@ -28,11 +29,15 @@ public class VoitureController {
 	@Autowired
 	private VoitureValidator validator;
 
+	private Logger logger = Logger.getLogger(ClientController.class);
 
 	@RequestMapping(value = "/voiture.do", method = RequestMethod.GET)
 	public ModelAndView initForm() throws ServiceException {
+		
+		 logger.info("Appel formCreate Methode GET");
+		 
 		Voiture v = new Voiture();
-		ModelAndView modelAndView = new ModelAndView("saisie-voiture",
+		ModelAndView modelAndView = new ModelAndView("voiture/saisie-voiture",
 				"voiture", v);
 		return modelAndView;
 	}
@@ -47,7 +52,8 @@ public class VoitureController {
 		validator.validate(voiture, errors);
 
 		if (errors.hasErrors()) {
-			return new ModelAndView("saisie-voiture", "voiture", voiture);
+			return new ModelAndView("voiture/saisie-voiture", "voiture",
+					voiture);
 		}
 
 		voitureService.save(voiture);
@@ -73,10 +79,7 @@ public class VoitureController {
 	public ModelAndView findAllVoiture() throws ServiceException {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("listVoitures", voitureService.findAll());
-		params.put("supervoiture", new Voiture(6, "SUPER VOITURE",
-				"SUPER VOITURE"));
-
-		return new ModelAndView("list-voiture", params);
+		return new ModelAndView("voiture/list-voiture", params);
 	}
 
 	@RequestMapping(value = "/supprimer.do", method = RequestMethod.GET)
@@ -85,7 +88,7 @@ public class VoitureController {
 
 		voitureService.remove(id);
 
-		return new ModelAndView("supprimer-voiture");
+		return new ModelAndView("voiture/supprimer-voiture");
 
 	}
 
@@ -98,12 +101,12 @@ public class VoitureController {
 
 	}
 
-	@RequestMapping(value = "modifier.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/modifier.do", method = RequestMethod.GET)
 	public ModelAndView initModifier(Voiture voiture) throws ServiceException {
 
 		voiture = voitureService.findById(voiture.getId());
 
-		return new ModelAndView("modifier-voiture", "voiture", voiture);
+		return new ModelAndView("voiture/modifier-voiture", "voiture", voiture);
 
 	}
 }

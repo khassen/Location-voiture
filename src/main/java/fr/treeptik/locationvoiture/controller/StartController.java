@@ -11,7 +11,7 @@ public class StartController {
 	
 	
 
-	@RequestMapping(value ="/hello.do", method = RequestMethod.GET)
+	@RequestMapping(value ="/accueil.do", method = RequestMethod.GET)
 	public ModelAndView securityLogin() {
 
 		return new ModelAndView("login");
@@ -28,7 +28,7 @@ public class StartController {
 	@RequestMapping(value ="/deconnexion.do", method = RequestMethod.GET)
 	public ModelAndView logout() {
 
-		return new ModelAndView("long");
+		return new ModelAndView("login");
 
 	}
 

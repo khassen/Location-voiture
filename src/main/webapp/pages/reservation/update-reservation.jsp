@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="header.jsp" %>
+	<%@ include file="/pages/header.jsp"%>
 	<h1>Modifier reservation</h1>
 	<br />
 
@@ -23,6 +23,10 @@
 
 		<table>
 			<tr>
+				<td>Date Reservation :</td>
+				<td><form:input path="dateResev" /></td>
+			</tr>
+			<tr>
 				<td>Date Prise :</td>
 				<td><form:input path="datePrise" /></td>
 			</tr>
@@ -30,27 +34,26 @@
 				<td>Date Retour :</td>
 				<td><form:input path="dateRetour" /></td>
 			</tr>
-			<tr>
-				<td>Date Reservation :</td>
-				<td><form:input path="dateResev" /></td>
-			</tr>
-			<tr>
-				<td>Nom Client:</td>
-				<td><form:input path="client.nom" /></td>
 
 			<tr>
-				<td>Prenom Email:</td>
-				<td><form:input path="client.email" /></td>
-
+				<td>Client:</td>
+				<td><form:select path="client.id">
+						<c:forEach var="client" items="${clients}">
+							<form:option value="${client.id}">
+							${client.nom} ${client.prenom}
+                            </form:option>
+						</c:forEach>
+					</form:select></td>
 			</tr>
 			<tr>
-<!-- c -->
-				<td>Marque Voiture:</td>
-				<td><form:input path="voiture.marque" /></td>
-			</tr>
-			<tr>
-				<td>Modele Voiture:</td>
-				<td><form:input path="voiture.model" /></td>
+				<td>Voiture:</td>
+				<td><form:select path="voiture.id">
+						<c:forEach var="voiture" items="${voitures}">
+							<form:option value="${voiture.id}">
+                                ${voiture.marque} ${voiture.model}
+                             </form:option>
+						</c:forEach>
+					</form:select></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Valider" /></td>
@@ -64,9 +67,9 @@
 	</form:form>
 
 
+	<%@ include file="/pages/footer.jsp"%>
 
 
-<%@ include file="footer.jsp" %>
 
 </body>
 </html>

@@ -14,12 +14,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Insert title here</title>
+<title>Location voiture</title>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="/pages/header.jsp"%>
 	<center>
-	<h1>Saisie Voiture</h1>
+
 	<br />
 	<!-- pour pouvoir changer la langue -->
 	<fmt:bundle basename="messages" />
@@ -36,7 +36,7 @@
 
 			<tr>
 				<td>Marque:</td>
-				<td><form:input path="marque" /></td>
+				<td><form:input path="marque" /><form:errors path="marque" /></td>
 			</tr>
 
 			<tr>
@@ -60,6 +60,6 @@
 		<a href="begin.do">retour</a>
 	</form:form>
 	</center>
-	<%@ include file="footer.jsp"%>
+	<%@ include file="/pages/footer.jsp"%>
 </body>
 </html>

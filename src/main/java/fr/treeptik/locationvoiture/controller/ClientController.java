@@ -15,6 +15,7 @@ import fr.treeptik.locationvoiture.model.Client;
 import fr.treeptik.locationvoiture.service.ClientService;
 
 @Controller
+@RequestMapping(value="/client")
 public class ClientController {
 	
 	@Autowired
@@ -29,7 +30,7 @@ public class ClientController {
 	@RequestMapping(value = "/client.do", method = RequestMethod.GET)
 	public ModelAndView initForm() throws ServiceException {
 		Client cli = new Client();
-		ModelAndView modelAndView = new ModelAndView("save-client",
+		ModelAndView modelAndView = new ModelAndView("client/save-client",
 				"client", cli);
 		return modelAndView;
 	}
@@ -51,7 +52,7 @@ public class ClientController {
 		params.put("listClients", clientService.findAll());
 		
 		
-		return new ModelAndView("list-client",params);
+		return new ModelAndView("client/list-client",params);
 		
 	}
 	
@@ -61,7 +62,7 @@ public class ClientController {
 
 		clientService.remove(id);
 
-		return new ModelAndView("delete-client");
+		return new ModelAndView("client/delete-client");
 
 	}
 
@@ -79,7 +80,7 @@ public class ClientController {
 
 		cli = clientService.findById(cli.getId());
 
-		return new ModelAndView("update-client", "client", cli);
+		return new ModelAndView("client/update-client", "client", cli);
 
 	}
 }

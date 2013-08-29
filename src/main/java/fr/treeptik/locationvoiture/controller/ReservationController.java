@@ -20,6 +20,7 @@ import fr.treeptik.locationvoiture.service.ReservationService;
 import fr.treeptik.locationvoiture.service.VoitureService;
 
 @Controller
+@RequestMapping(value="/reservation")
 public class ReservationController {
 
 	@Autowired
@@ -63,7 +64,7 @@ public class ReservationController {
 		List<Client> listClients = clientService.findAll();
 		List<Voiture> listVoitures = voitureService.findAll();
 
-		ModelAndView modelAndView = new ModelAndView("save-reservation",
+		ModelAndView modelAndView = new ModelAndView("reservation/save-reservation",
 				"reservation", reservation);
 
 		modelAndView.addObject("clients", listClients);
@@ -88,7 +89,7 @@ public class ReservationController {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("listReservations", reservationService.findAll());
 
-		return new ModelAndView("list-reservation", params);
+		return new ModelAndView("reservation/list-reservation", params);
 
 	}
 
@@ -97,7 +98,7 @@ public class ReservationController {
 			throws ServiceException {
 		reservationService.remove(id);
 
-		return new ModelAndView("delete-reservation");
+		return new ModelAndView("reservation/delete-reservation");
 
 	}
 	
@@ -108,7 +109,7 @@ public class ReservationController {
 
 		reservation = reservationService.findById(reservation.getId());
 
-		ModelAndView modelAndView = new ModelAndView("update-reservation",
+		ModelAndView modelAndView = new ModelAndView("reservation/update-reservation",
 				"reservation", reservation);
 
 		List<Client> listClients = clientService.findAll();

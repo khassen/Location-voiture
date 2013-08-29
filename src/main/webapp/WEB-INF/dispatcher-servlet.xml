@@ -4,6 +4,7 @@
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:p="http://www.springframework.org/schema/p" xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
@@ -11,8 +12,8 @@
                            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
                            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd 
                            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd 
-                           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
-
+                           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+	                       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
 	<context:annotation-config />
 	<context:component-scan base-package="fr.treeptik"></context:component-scan>
@@ -23,7 +24,7 @@
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
 		<!-- <property name="prefix" value="/pages/" /> -->
-		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="prefix" value="/pages/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
@@ -87,17 +88,17 @@
 	<security:global-method-security
 		jsr250-annotations="enabled" />
 
-	<security:http pattern="/login.jsp" security="none" />
+	<security:http pattern="/pages/login.jsp" security="none" />
 
 
 	<security:http>
-<!-- 		tte les url sont securisés et il faut s'iauthentifier pour accéder -->
+		<!-- tte les url sont securisés et il faut s'iauthentifier pour accéder -->
 		<security:intercept-url pattern="/**" access="ROLE_USER" />
-		
-		<security:form-login login-page="/login.jsp"
+
+		<security:form-login login-page="/pages/login.jsp"
 			default-target-url="/begin.do" />
-		
-		<security:logout />
+
+		<security:logout logout-success-url="/pages/login.jsp" />
 	</security:http>
 
 	<security:authentication-manager>
@@ -118,6 +119,27 @@
 
 	</security:authentication-manager>
 
+	<!-- Bean qui contient le code qui serra exécuté cette conf peut être faite 
+		avec l'annotation @Component -->
+	<bean id="notifierAspect" class="fr.treeptik.locationvoiture.aspect.ConsoleNotifier" />
 
+	<!-- Conf AOP -->
+
+
+	<aop:config>
+
+		<!-- Définition du point d'interception (toutes les méthodes save de toutes 
+			les classes des services) -->
+		<aop:pointcut id="notifierPointcut"
+			expression="execution(* fr.treeptik.locationvoiture.service.*.save(..))" />
+
+		<!-- Appel des méthodes -->
+		<aop:aspect id="notifierAop" ref="notifierAspect">
+			<aop:after-returning pointcut-ref="notifierPointcut"
+				method="afterReturning" returning="result" />
+			<aop:before method="beforeSave" pointcut-ref="notifierPointcut" />
+		</aop:aspect>
+
+	</aop:config>
 
 </beans>

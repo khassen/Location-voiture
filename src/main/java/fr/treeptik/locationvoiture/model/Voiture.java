@@ -2,19 +2,20 @@ package fr.treeptik.locationvoiture.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -29,33 +30,37 @@ public class Voiture implements Serializable{
 	private Integer id;
 	
 //	@NotEmpty(message="saisir une marque")
-	@NotBlank
-	@Size(min=3, max=10,message="modele entre 3 et 10")
+	
+	@NotEmpty
+//	@Size(min=3, max=10)
 	private String marque;
 	
 //	@NotBlank(message="saisir un modele")
-    @Size(min=3, max=10,message="modele entre 3 et 10")
 	@NotBlank
 	private String model;
 	
 
-	@Past
+//	@Past
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date dateMiseEnCirculation;
 	
-	@OneToOne(mappedBy="voiture")
-	private Reservation reservation;
+	@OneToMany(mappedBy="voiture")
+	private List<Reservation> reservations;
 	
 	public Voiture() {
 		super();
 	}
-	public Voiture(Integer id, String marque, String model) {
+
+	public Voiture(Integer id, String marque, String model,
+			Date dateMiseEnCirculation) {
 		super();
 		this.id = id;
 		this.marque = marque;
 		this.model = model;
+		this.dateMiseEnCirculation = dateMiseEnCirculation;
 	}
+
 	public Integer getId() {
 		return id;
 	}

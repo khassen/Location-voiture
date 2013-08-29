@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -9,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="/pages/header.jsp" %>
 	<h1>Saisie d'un client</h1>
 	<br />
 
@@ -40,6 +41,6 @@
 
 	</form:form>
 
-<%@ include file="footer.jsp" %>
+<%@ include file="/pages/footer.jsp" %>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package fr.treeptik.locationvoiture.test;
 
+import java.util.Date;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,7 +30,7 @@ public class TestLocationVoiture {
 		
 		
 		try {
-		Voiture v =	voitureService.save(new Voiture(null,"Toyota", "Rav 4"));
+		Voiture v =	voitureService.save(new Voiture(null,"Toyota", "Rav 4",new Date()));
 			Assert.assertNotNull(v.getId());
 			System.out.println("Marque : "+v.getMarque());
 			} catch (ServiceException e) {

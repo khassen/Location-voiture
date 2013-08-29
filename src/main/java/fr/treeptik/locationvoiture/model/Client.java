@@ -27,11 +27,12 @@ public class Client implements Serializable{
 	private Integer id;
 	
 	@Size
-	@NotBlank(message="saisir un nom")
+//	@NotBlank(message="saisir un nom")
+	@NotBlank
 	private String nom;
 	
 	@Size
-	@NotBlank(message="saisir un prenom")
+	@NotBlank
 	private String prenom;
 	
 	@Email

@@ -14,8 +14,9 @@ public abstract class GenericServiceImpl<T, PK, D extends GenericDAO<T, PK>> imp
 
 	protected abstract D getDAO();
 	
-	@Transactional
+
 	@Override
+	@Transactional
 	public T save(T entite) throws ServiceException {
 		try {
 			getDAO().save(entite);
