@@ -6,7 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<properties>
-		<version.java>1.5</version.java>
+		<version.java>1.6</version.java>
 		<hibernate.version>4.2.3.Final</hibernate.version>
 		<spring.version>3.2.3.RELEASE</spring.version>
 		<version.maven.jar.plugin>2.4</version.maven.jar.plugin>
