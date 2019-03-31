@@ -13,7 +13,7 @@
 </head>
 <body>
 <%@ include file="/pages/header.jsp" %>
-	<form:form action="reservation.do" commandName="reservation"
+	<form:form action="reservation.do" modelAttribute="reservation"
 		method="POST">
 
 		<table>

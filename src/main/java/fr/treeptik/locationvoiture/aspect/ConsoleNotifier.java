@@ -6,9 +6,11 @@ import java.util.Date;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.JoinPoint.StaticPart;
+import org.springframework.stereotype.Component;
 
 import fr.treeptik.locationvoiture.model.Voiture;
 
+@Component
 public class ConsoleNotifier {
 
 	public void afterReturning(StaticPart staticPart, Object result) {
@@ -28,8 +30,7 @@ public class ConsoleNotifier {
 
 			System.out.println(result.getClass().getName() + " " + id);
 
-		} catch (IllegalAccessException | IllegalArgumentException
-				| InvocationTargetException e) {
+		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
@@ -44,10 +45,8 @@ public class ConsoleNotifier {
 			if (method.getName().startsWith("get")) {
 
 				try {
-					System.out.println("++ " + method.getName() + "++"
-							+ method.invoke(result));
-				} catch (IllegalAccessException | IllegalArgumentException
-						| InvocationTargetException e) {
+					System.out.println("++ " + method.getName() + "++" + method.invoke(result));
+				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 					e.printStackTrace();
 				}
 
@@ -56,7 +55,7 @@ public class ConsoleNotifier {
 		}
 
 		// -3- chaque classe toute seule
-		
+
 		// if (result instanceof Voiture) {
 		// Voiture v = (Voiture) result;
 		//
@@ -67,13 +66,12 @@ public class ConsoleNotifier {
 	}
 
 	public void beforeSave(JoinPoint joinPoint) {
-		
-		 System.out.println("Signature  " +
-		 joinPoint.getSignature().getName());
-		 Object[] args = joinPoint.getArgs();
-		 Voiture v = (Voiture) args[0];
-		 v.setMarque("Hack Contact");
-		 System.out.println("Before save nom : " +v.getMarque());
+
+		System.out.println("Signature  " + joinPoint.getSignature().getName());
+		Object[] args = joinPoint.getArgs();
+		Voiture v = (Voiture) args[0];
+		v.setMarque("Hack Contact");
+		System.out.println("Before save nom : " + v.getMarque());
 
 	}
 

@@ -30,7 +30,7 @@
 
 	<br />
 
-	<form:form action="voiture.do" commandName="voiture" method="POST">
+	<form:form action="voiture.do" modelAttribute="voiture" method="POST">
 
 		<table>
 
@@ -57,7 +57,7 @@
 
 		</table>
 		</br>
-		<a href="begin.do">retour</a>
+		<a href="../pages/login.jsp">retour</a>
 	</form:form>
 	</center>
 	<%@ include file="/pages/footer.jsp"%>

@@ -69,7 +69,7 @@ CREATE TABLE `reservation` (
 
 LOCK TABLES `reservation` WRITE;
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
-INSERT INTO `reservation` VALUES (16,'2013-01-01 00:00:00','2013-02-01 00:00:00',8,1,'2012-12-30 00:00:00'),(17,'2013-01-25 00:00:00','2013-02-20 00:00:00',10,3,'0201-01-05 00:00:00'),(18,'2012-05-01 00:00:00','2013-02-01 00:00:00',11,5,'2012-04-30 00:00:00');
+INSERT INTO `reservation` VALUES (16,'2013-01-01 00:00:00','2012-12-30 00:00:00','2013-02-01 00:00:00',8,1),(17,'2013-01-25 00:00:00','2013-01-05 00:00:00','2013-02-20 00:00:00',10,3),(18,'2012-05-01 00:00:00','2012-04-30 00:00:00','2013-02-01 00:00:00',11,5);
 /*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,7 +95,7 @@ CREATE TABLE `voiture` (
 
 LOCK TABLES `voiture` WRITE;
 /*!40000 ALTER TABLE `voiture` DISABLE KEYS */;
-INSERT INTO `voiture` VALUES (1,'BMW','520',NULL),(2,'Audi','A3',NULL),(3,'Toyota','Rav 4',NULL),(5,'Pegeot','207',NULL),(6,'Toyota','RAV 4',NULL),(7,'Renault','Megane',NULL),(9,'Renault','Espace',NULL),(10,'Fiat','500L',NULL),(11,'Toyota','Yaris',NULL);
+INSERT INTO `voiture` VALUES (1,'2012-01-01 00:00:00','BMW','520'),(2,'2012-03-01 00:00:00','Audi','A3'),(3,'2013-03-01 00:00:00','Toyota','Rav 4'),(5,'2012-08-01 00:00:00','Pegeot','207'),(6,'2012-01-14 00:00:00','Toyota','RAV 4'),(10,'2019-01-01 00:00:00','Fiat','500L'),(11,'2017-01-01 00:00:00','Toyota','Yaris');
 /*!40000 ALTER TABLE `voiture` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -109,3 +109,17 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2013-08-23 16:20:40
+
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(25) DEFAULT NULL,
+  `password` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+INSERT INTO `users` VALUES (1,'admin','AWQZX'),(2,'hassen','hassen');
+

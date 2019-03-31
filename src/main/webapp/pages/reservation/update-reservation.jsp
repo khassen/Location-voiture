@@ -16,7 +16,7 @@
 	<h1>Modifier reservation</h1>
 	<br />
 
-	<form:form action="update-reservation.do" commandName="reservation"
+	<form:form action="update-reservation.do" modelAttribute="reservation"
 		method="POST">
 
 		<form:hidden path="id" />

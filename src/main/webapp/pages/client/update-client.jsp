@@ -17,7 +17,7 @@
 	<h1>Modifier Client</h1>
 	<br />
 
-	<form:form action="update.do" commandName="client" method="POST">
+	<form:form action="update.do" modelAttribute="client" method="POST">
 
 		<form:hidden path="id" />
 

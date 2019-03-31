@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.treeptik</groupId>
@@ -6,10 +7,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<properties>
-		<version.java>1.6</version.java>
-		<hibernate.version>4.2.3.Final</hibernate.version>
-		<spring.version>3.2.3.RELEASE</spring.version>
-		<version.maven.jar.plugin>2.4</version.maven.jar.plugin>
+		<version.java>1.8</version.java>
+		<hibernate.version>4.3.1.Final</hibernate.version>
+		<spring.version>5.0.0.RELEASE</spring.version>
+		<version.maven.jar.plugin>3.5</version.maven.jar.plugin>
 		<version.maven.exec.plugin>1.2.1</version.maven.exec.plugin>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -108,13 +109,13 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.2.3.Final</version>
+			<version>4.3.1.Final</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.2.3.Final</version>
+			<version>4.3.1.Final</version>
 		</dependency>
 
 		<dependency>
@@ -136,7 +137,7 @@
 		</dependency>
 
 		<!-- Base de données MYSQL -->
-		<!-- fourni par tocat -->
+		<!-- fourni par tomcat -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -146,11 +147,11 @@
 
 
 		<!-- ORACLE database driver -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.oracle</groupId> -->
-<!-- 			<artifactId>ojdbc6</artifactId> -->
-<!-- 			<version>11.2.0</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.oracle</groupId> -->
+		<!-- <artifactId>ojdbc6</artifactId> -->
+		<!-- <version>11.2.0</version> -->
+		<!-- </dependency> -->
 
 		<!-- Junit -->
 
@@ -169,6 +170,18 @@
 			<version>2.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+<dependency>
+    <groupId>javax.persistence</groupId>
+    <artifactId>javax.persistence-api</artifactId>
+    <version>2.2</version>
+</dependency>
 
 	</dependencies>
 
@@ -230,13 +243,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>3.5</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
-			</plugin>
 
+			</plugin>
 		</plugins>
 
 		<!-- pour le log -->

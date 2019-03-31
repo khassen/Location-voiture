@@ -14,7 +14,7 @@
 	<h1>Saisie d'un client</h1>
 	<br />
 
-	<form:form action="client.do" commandName="client" method="POST">
+	<form:form action="client.do" modelAttribute="client" method="POST">
 
 
 		<table>

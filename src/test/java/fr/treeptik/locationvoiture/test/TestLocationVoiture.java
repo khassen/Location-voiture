@@ -21,7 +21,7 @@ import fr.treeptik.locationvoiture.exception.DAOException;
 import fr.treeptik.locationvoiture.exception.ServiceException;
 import fr.treeptik.locationvoiture.model.Voiture;
 import fr.treeptik.locationvoiture.service.VoitureService;
-import fr.treeptik.locationvoiture.service.impl.VoitureS‪erviceImpl;
+import fr.treeptik.locationvoiture.service.impl.VoitureServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/dispatcher-servlet.xml")
@@ -30,7 +30,7 @@ public class TestLocationVoiture {
 	@Autowired
 	private VoitureService voitureService;
 
-	VoitureService voitureServiceM = new VoitureS‪erviceImpl();
+	VoitureService voitureServiceM = new VoitureServiceImpl();
 
 	@Test
 	public void testFindAllVoitures() throws DAOException {
@@ -39,7 +39,7 @@ public class TestLocationVoiture {
 		Voiture v2 = new Voiture(null, "Nissan", "mikra", new Date());
 		Voiture v3 = new Voiture(null, "Seat", "Cordoba", new Date());
 
-		List<Voiture> listVoiture = new ArrayList<>();
+		List<Voiture> listVoiture = new ArrayList<Voiture>();
 		listVoiture.add(v1);
 		listVoiture.add(v2);
 		listVoiture.add(v3);

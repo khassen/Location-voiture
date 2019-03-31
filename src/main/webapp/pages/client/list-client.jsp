@@ -17,7 +17,7 @@
 	<h1>List des clients</h1>
 	<br />
 
-	<form:form action="clients.do" commandName="client" method="GET">
+	<form:form action="clients.do" modelAttribute="client" method="GET">
 
 		<table border="1" bordercolor="red">
 			<tr>

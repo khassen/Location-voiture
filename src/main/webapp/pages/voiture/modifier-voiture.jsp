@@ -13,7 +13,7 @@
 	<h1>Modifier Voiture</h1>
 	<br />
 
-	<form:form action="modifier.do" commandName="voiture" method="POST">
+	<form:form action="modifier.do" modelAttribute="voiture" method="POST">
 
 		<form:hidden path="id" />
 
